@@ -99,15 +99,15 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex gap-2.5 text-sm text-gray-400">
                 <MapPin size={16} className="shrink-0 mt-0.5 text-[#0073bb]" />
-                <span>1234 Auto Drive, Motor City, MC 12345</span>
+                <span>533 Kirtley Rd Unit 1, Leon, VA 22725</span>
               </li>
               <li>
                 <a
-                  href="tel:+15551234567"
+                  href="tel:+17037958105"
                   className="flex gap-2.5 text-sm text-gray-400 hover:text-white transition-colors"
                 >
                   <Phone size={16} className="shrink-0 text-[#0073bb]" />
-                  (555) 123-4567
+                  (703) 795-8105
                 </a>
               </li>
               <li>

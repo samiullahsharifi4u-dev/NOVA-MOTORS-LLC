@@ -71,11 +71,11 @@ export default function Navbar() {
         {/* Right side */}
         <div className="flex items-center gap-3">
           <a
-            href="tel:+15551234567"
+            href="tel:+17037958105"
             className="hidden sm:flex items-center gap-1.5 text-sm text-[#757575] hover:text-[#0073bb] transition-colors"
           >
             <Phone size={14} />
-            <span className="font-medium">(555) 123-4567</span>
+            <span className="font-medium">(703) 795-8105</span>
           </a>
 
           <Link
@@ -120,11 +120,11 @@ export default function Navbar() {
             </Link>
           ))}
           <a
-            href="tel:+15551234567"
+            href="tel:+17037958105"
             className="flex items-center gap-2 px-4 py-2.5 text-sm text-[#757575]"
           >
             <Phone size={14} />
-            (555) 123-4567
+            (703) 795-8105
           </a>
         </div>
       )}

@@ -142,7 +142,7 @@ function AppointmentsContent() {
                     <input
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      placeholder="(555) 123-4567"
+                      placeholder="(703) 000-0000"
                       className="w-full px-4 py-3 border border-[#e0e0e0] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0073bb]"
                     />
                   </div>
@@ -244,12 +244,12 @@ function AppointmentsContent() {
             <div className="bg-white rounded-2xl border border-[#e0e0e0] p-6">
               <h3 className="font-bold text-[#212121] mb-4">Contact Us Directly</h3>
               <div className="space-y-3">
-                <a href="tel:5551234567" className="flex items-center gap-3 text-sm text-[#757575] hover:text-[#0073bb] transition-colors">
+                <a href="tel:7037958105" className="flex items-center gap-3 text-sm text-[#757575] hover:text-[#0073bb] transition-colors">
                   <div className="w-9 h-9 bg-[#e3f2fd] rounded-lg flex items-center justify-center shrink-0">
                     <Phone size={16} className="text-[#0073bb]" />
                   </div>
                   <div>
-                    <p className="font-medium text-[#212121]">(555) 123-4567</p>
+                    <p className="font-medium text-[#212121]">(703) 795-8105</p>
                     <p className="text-xs">Call us anytime during business hours</p>
                   </div>
                 </a>

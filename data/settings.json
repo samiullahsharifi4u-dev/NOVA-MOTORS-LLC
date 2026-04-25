@@ -8,13 +8,13 @@
   "heroHeadline": "Find Your Perfect Car",
   "heroSubheadline": "Browse our premium selection of certified pre-owned vehicles. Certified, priced right, and ready to drive.",
   "contact": {
-    "phone": "(555) 123-4567",
+    "phone": "(703) 795-8105",
     "email": "info@novamotorsllc.com",
-    "address": "1234 Auto Drive",
-    "city": "Motor City",
-    "state": "MC",
-    "zip": "12345",
-    "googleMapsUrl": ""
+    "address": "533 Kirtley Rd Unit 1",
+    "city": "Leon",
+    "state": "VA",
+    "zip": "22725",
+    "googleMapsUrl": "https://maps.google.com/?q=533+Kirtley+Rd+Unit+1+Leon+VA+22725"
   },
   "businessHours": [
     { "day": "Monday", "open": true, "openTime": "09:00", "closeTime": "19:00" },

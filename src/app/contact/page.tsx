@@ -117,7 +117,7 @@ export default function ContactPage() {
                       <input
                         type="email"
                         className={inputClass("email")}
-                        placeholder="john@example.com"
+                        placeholder="your@email.com"
                         value={form.email}
                         onChange={(e) => {
                           setForm({ ...form, email: e.target.value });
@@ -136,7 +136,7 @@ export default function ContactPage() {
                       <input
                         type="tel"
                         className={inputClass("phone")}
-                        placeholder="(555) 000-0000"
+                        placeholder="(703) 000-0000"
                         value={form.phone}
                         onChange={(e) =>
                           setForm({ ...form, phone: e.target.value })
@@ -200,9 +200,9 @@ export default function ContactPage() {
                     <div>
                       <p className="font-semibold text-sm text-[#212121]">Address</p>
                       <p className="text-[#757575] text-sm">
-                        1234 Auto Drive
+                        533 Kirtley Rd Unit 1
                         <br />
-                        Motor City, MC 12345
+                        Leon, VA 22725
                       </p>
                     </div>
                   </div>
@@ -214,10 +214,10 @@ export default function ContactPage() {
                     <div>
                       <p className="font-semibold text-sm text-[#212121]">Phone</p>
                       <a
-                        href="tel:+15551234567"
+                        href="tel:+17037958105"
                         className="text-[#0073bb] hover:underline text-sm"
                       >
-                        (555) 123-4567
+                        (703) 795-8105
                       </a>
                     </div>
                   </div>
@@ -259,7 +259,7 @@ export default function ContactPage() {
                   <div className="text-center">
                     <MapPin size={40} className="text-[#0073bb] mx-auto mb-2" />
                     <p className="text-[#0073bb] font-semibold text-sm">
-                      1234 Auto Drive, Motor City
+                      533 Kirtley Rd Unit 1, Leon, VA
                     </p>
                     <a
                       href="https://maps.google.com"
