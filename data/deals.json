@@ -1,0 +1,113 @@
+[
+  {
+    "id": "deal-1",
+    "dealNumber": "NM-DEAL-001",
+    "customerId": "cust-1",
+    "carId": "1",
+    "carSnapshot": "2022 Toyota Camry XSE",
+    "salePrice": 27500,
+    "tradeIn": {
+      "hasTradeIn": false
+    },
+    "financing": {
+      "type": "financed",
+      "lender": "Chase Auto Finance",
+      "loanAmount": 22000,
+      "downPayment": 5500,
+      "interestRate": 6.9,
+      "loanTerm": 60,
+      "monthlyPayment": 434.52,
+      "financeReserve": 800
+    },
+    "fiProducts": {
+      "extendedWarranty": { "included": true, "price": 1495 },
+      "gapInsurance": { "included": true, "price": 495 },
+      "paintProtection": { "included": false, "price": 0 },
+      "tireWheel": { "included": false, "price": 0 }
+    },
+    "taxRate": 8.25,
+    "docFee": 499,
+    "status": "closed",
+    "salesperson": "James Mitchell",
+    "notes": "Customer was very happy with the deal. Quick and easy process.",
+    "createdAt": "2026-04-10T10:00:00Z",
+    "updatedAt": "2026-04-10T15:00:00Z",
+    "closedAt": "2026-04-10T15:00:00Z"
+  },
+  {
+    "id": "deal-2",
+    "dealNumber": "NM-DEAL-002",
+    "customerId": "cust-2",
+    "carId": "3",
+    "carSnapshot": "2023 Honda CR-V EX",
+    "salePrice": 32800,
+    "tradeIn": {
+      "hasTradeIn": true,
+      "year": 2018,
+      "make": "Toyota",
+      "model": "RAV4",
+      "mileage": 78000,
+      "condition": "Good",
+      "value": 14500
+    },
+    "financing": {
+      "type": "financed",
+      "lender": "Wells Fargo Auto",
+      "loanAmount": 19800,
+      "downPayment": 2000,
+      "interestRate": 7.5,
+      "loanTerm": 72,
+      "monthlyPayment": 340.15,
+      "financeReserve": 950
+    },
+    "fiProducts": {
+      "extendedWarranty": { "included": true, "price": 1795 },
+      "gapInsurance": { "included": true, "price": 595 },
+      "paintProtection": { "included": true, "price": 399 },
+      "tireWheel": { "included": false, "price": 0 }
+    },
+    "taxRate": 8.25,
+    "docFee": 499,
+    "status": "pending",
+    "salesperson": "James Mitchell",
+    "notes": "Awaiting final credit approval from lender.",
+    "createdAt": "2026-04-22T09:00:00Z",
+    "updatedAt": "2026-04-23T11:00:00Z",
+    "closedAt": null
+  },
+  {
+    "id": "deal-3",
+    "dealNumber": "NM-DEAL-003",
+    "customerId": "cust-3",
+    "carId": "4",
+    "carSnapshot": "2020 BMW 3 Series 330i",
+    "salePrice": 34000,
+    "tradeIn": {
+      "hasTradeIn": false
+    },
+    "financing": {
+      "type": "cash",
+      "lender": "",
+      "loanAmount": 0,
+      "downPayment": 0,
+      "interestRate": 0,
+      "loanTerm": 0,
+      "monthlyPayment": 0,
+      "financeReserve": 0
+    },
+    "fiProducts": {
+      "extendedWarranty": { "included": false, "price": 0 },
+      "gapInsurance": { "included": false, "price": 0 },
+      "paintProtection": { "included": false, "price": 0 },
+      "tireWheel": { "included": false, "price": 0 }
+    },
+    "taxRate": 8.25,
+    "docFee": 499,
+    "status": "closed",
+    "salesperson": "Nova Owner",
+    "notes": "Cash deal. Quick close.",
+    "createdAt": "2026-03-15T10:00:00Z",
+    "updatedAt": "2026-03-15T14:00:00Z",
+    "closedAt": "2026-03-15T14:00:00Z"
+  }
+]

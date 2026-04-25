@@ -1,0 +1,47 @@
+[
+  {
+    "id": "inv-1",
+    "invoiceNumber": "INV-2026-001",
+    "dealId": "deal-1",
+    "customerId": "cust-1",
+    "customerName": "Robert Johnson",
+    "items": [
+      { "description": "2022 Toyota Camry XSE", "quantity": 1, "unitPrice": 27500, "total": 27500 },
+      { "description": "Extended Warranty", "quantity": 1, "unitPrice": 1495, "total": 1495 },
+      { "description": "GAP Insurance", "quantity": 1, "unitPrice": 495, "total": 495 },
+      { "description": "Documentation Fee", "quantity": 1, "unitPrice": 499, "total": 499 }
+    ],
+    "taxRate": 8.25,
+    "subtotal": 29989,
+    "taxAmount": 2474.09,
+    "grandTotal": 32463.09,
+    "notes": "Thank you for your purchase! Payment due upon delivery.",
+    "status": "paid",
+    "createdAt": "2026-04-10T15:00:00Z",
+    "dueDate": "2026-04-10",
+    "paidAt": "2026-04-10T15:30:00Z"
+  },
+  {
+    "id": "inv-2",
+    "invoiceNumber": "INV-2026-002",
+    "dealId": "deal-2",
+    "customerId": "cust-2",
+    "customerName": "Maria Rodriguez",
+    "items": [
+      { "description": "2023 Honda CR-V EX", "quantity": 1, "unitPrice": 32800, "total": 32800 },
+      { "description": "Extended Warranty", "quantity": 1, "unitPrice": 1795, "total": 1795 },
+      { "description": "GAP Insurance", "quantity": 1, "unitPrice": 595, "total": 595 },
+      { "description": "Paint Protection Package", "quantity": 1, "unitPrice": 399, "total": 399 },
+      { "description": "Documentation Fee", "quantity": 1, "unitPrice": 499, "total": 499 }
+    ],
+    "taxRate": 8.25,
+    "subtotal": 36088,
+    "taxAmount": 2977.26,
+    "grandTotal": 39065.26,
+    "notes": "Pending lender approval.",
+    "status": "draft",
+    "createdAt": "2026-04-22T09:00:00Z",
+    "dueDate": "2026-05-01",
+    "paidAt": null
+  }
+]

@@ -1,0 +1,69 @@
+{
+  "dealershipName": "Nova Motors LLC",
+  "logoUrl": "",
+  "faviconUrl": "",
+  "primaryColor": "#0073bb",
+  "secondaryColor": "#1a1a2e",
+  "tagline": "Quality Pre-Owned Vehicles",
+  "heroHeadline": "Find Your Perfect Car",
+  "heroSubheadline": "Browse our premium selection of certified pre-owned vehicles. Certified, priced right, and ready to drive.",
+  "contact": {
+    "phone": "(555) 123-4567",
+    "email": "info@novamotorsllc.com",
+    "address": "1234 Auto Drive",
+    "city": "Motor City",
+    "state": "MC",
+    "zip": "12345",
+    "googleMapsUrl": ""
+  },
+  "businessHours": [
+    { "day": "Monday", "open": true, "openTime": "09:00", "closeTime": "19:00" },
+    { "day": "Tuesday", "open": true, "openTime": "09:00", "closeTime": "19:00" },
+    { "day": "Wednesday", "open": true, "openTime": "09:00", "closeTime": "19:00" },
+    { "day": "Thursday", "open": true, "openTime": "09:00", "closeTime": "19:00" },
+    { "day": "Friday", "open": true, "openTime": "09:00", "closeTime": "19:00" },
+    { "day": "Saturday", "open": true, "openTime": "09:00", "closeTime": "17:00" },
+    { "day": "Sunday", "open": true, "openTime": "11:00", "closeTime": "16:00" }
+  ],
+  "slides": [
+    {
+      "id": "slide-1",
+      "imageUrl": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80",
+      "headline": "Find Your Perfect Car",
+      "subheadline": "Browse our premium selection of quality pre-owned vehicles",
+      "buttonText": "Browse Inventory",
+      "buttonLink": "/inventory",
+      "active": true
+    },
+    {
+      "id": "slide-2",
+      "imageUrl": "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1600&q=80",
+      "headline": "Quality You Can Trust",
+      "subheadline": "Every vehicle passes our 150-point inspection before reaching our lot",
+      "buttonText": "Learn More",
+      "buttonLink": "/about",
+      "active": true
+    },
+    {
+      "id": "slide-3",
+      "imageUrl": "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1600&q=80",
+      "headline": "Easy Financing Available",
+      "subheadline": "Flexible payment plans for all credit situations. Get pre-approved today.",
+      "buttonText": "Book Appointment",
+      "buttonLink": "/appointments",
+      "active": true
+    }
+  ],
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "twitter": "",
+    "youtube": "",
+    "tiktok": ""
+  },
+  "seo": {
+    "metaTitle": "Nova Motors LLC — Quality Pre-Owned Vehicles",
+    "metaDescription": "Nova Motors LLC offers a premium selection of quality pre-owned vehicles. Browse our inventory, find your perfect car, and drive away happy.",
+    "googleAnalyticsId": ""
+  }
+}

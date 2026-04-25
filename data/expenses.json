@@ -1,0 +1,68 @@
+[
+  {
+    "id": "exp-1",
+    "date": "2026-04-01",
+    "category": "Vehicle Purchase Cost",
+    "description": "Purchase of 2022 Toyota Camry XSE (Stock NM-2022-001)",
+    "amount": 21000,
+    "paidBy": "Nova Owner",
+    "receiptUrl": "",
+    "carId": "1",
+    "createdAt": "2026-04-01T09:00:00Z"
+  },
+  {
+    "id": "exp-2",
+    "date": "2026-04-03",
+    "category": "Repairs/Prep",
+    "description": "Detail and inspection for Camry — oil change, tire rotation",
+    "amount": 380,
+    "paidBy": "Nova Owner",
+    "receiptUrl": "",
+    "carId": "1",
+    "createdAt": "2026-04-03T10:00:00Z"
+  },
+  {
+    "id": "exp-3",
+    "date": "2026-04-05",
+    "category": "Advertising",
+    "description": "Facebook & Google Ads — April campaign",
+    "amount": 850,
+    "paidBy": "Nova Owner",
+    "receiptUrl": "",
+    "carId": "",
+    "createdAt": "2026-04-05T08:00:00Z"
+  },
+  {
+    "id": "exp-4",
+    "date": "2026-04-10",
+    "category": "Utilities",
+    "description": "Electricity, internet, and phone — April",
+    "amount": 420,
+    "paidBy": "Nova Owner",
+    "receiptUrl": "",
+    "carId": "",
+    "createdAt": "2026-04-10T11:00:00Z"
+  },
+  {
+    "id": "exp-5",
+    "date": "2026-04-15",
+    "category": "Vehicle Purchase Cost",
+    "description": "Purchase of 2023 Honda CR-V EX (Stock NM-2023-003)",
+    "amount": 27500,
+    "paidBy": "Nova Owner",
+    "receiptUrl": "",
+    "carId": "3",
+    "createdAt": "2026-04-15T09:00:00Z"
+  },
+  {
+    "id": "exp-6",
+    "date": "2026-04-20",
+    "category": "Insurance",
+    "description": "Dealer insurance — monthly premium",
+    "amount": 1200,
+    "paidBy": "Nova Owner",
+    "receiptUrl": "",
+    "carId": "",
+    "createdAt": "2026-04-20T09:00:00Z"
+  }
+]

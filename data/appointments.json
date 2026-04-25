@@ -1,0 +1,62 @@
+[
+  {
+    "id": "appt-1",
+    "customerName": "Maria Rodriguez",
+    "email": "maria.r@email.com",
+    "phone": "(555) 345-6789",
+    "type": "test-drive",
+    "carId": "3",
+    "carInterest": "2023 Honda CR-V EX",
+    "date": "2026-04-28",
+    "time": "10:00 AM",
+    "status": "confirmed",
+    "notes": "Coming with her husband. Interested in financing.",
+    "assignedStaff": "James Mitchell",
+    "createdAt": "2026-04-22T11:00:00Z"
+  },
+  {
+    "id": "appt-2",
+    "customerName": "Kevin Williams",
+    "email": "kwilliams@email.com",
+    "phone": "(555) 567-8901",
+    "type": "purchase-inquiry",
+    "carId": "2",
+    "carInterest": "2021 Ford F-150 XLT",
+    "date": "2026-04-29",
+    "time": "2:00 PM",
+    "status": "scheduled",
+    "notes": "Truck buyer, needs cargo capacity info.",
+    "assignedStaff": "James Mitchell",
+    "createdAt": "2026-04-23T14:00:00Z"
+  },
+  {
+    "id": "appt-3",
+    "customerName": "Jennifer Lee",
+    "email": "jlee@email.com",
+    "phone": "(555) 678-9012",
+    "type": "financing",
+    "carId": "",
+    "carInterest": "Looking for a sedan under $30k",
+    "date": "2026-04-30",
+    "time": "11:30 AM",
+    "status": "scheduled",
+    "notes": "First time buyer. Pre-approval needed.",
+    "assignedStaff": "Sarah Chen",
+    "createdAt": "2026-04-24T09:00:00Z"
+  },
+  {
+    "id": "appt-4",
+    "customerName": "Robert Johnson",
+    "email": "robert.johnson@email.com",
+    "phone": "(555) 234-5678",
+    "type": "test-drive",
+    "carId": "1",
+    "carInterest": "2022 Toyota Camry XSE",
+    "date": "2026-04-10",
+    "time": "3:00 PM",
+    "status": "completed",
+    "notes": "Completed — led to deal NM-DEAL-001.",
+    "assignedStaff": "James Mitchell",
+    "createdAt": "2026-04-08T10:00:00Z"
+  }
+]

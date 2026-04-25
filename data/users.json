@@ -1,0 +1,35 @@
+[
+  {
+    "id": "user-1",
+    "fullName": "Nova Owner",
+    "email": "admin@novamotors.com",
+    "password": "novamotors2024",
+    "role": "owner",
+    "status": "active",
+    "avatarUrl": "",
+    "lastLogin": "2026-04-25T10:00:00Z",
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "user-2",
+    "fullName": "James Mitchell",
+    "email": "james@novamotors.com",
+    "password": "sales2024",
+    "role": "sales",
+    "status": "active",
+    "avatarUrl": "",
+    "lastLogin": "2026-04-24T15:30:00Z",
+    "createdAt": "2024-03-01T00:00:00Z"
+  },
+  {
+    "id": "user-3",
+    "fullName": "Sarah Chen",
+    "email": "sarah@novamotors.com",
+    "password": "finance2024",
+    "role": "finance",
+    "status": "active",
+    "avatarUrl": "",
+    "lastLogin": "2026-04-23T09:00:00Z",
+    "createdAt": "2024-03-15T00:00:00Z"
+  }
+]
