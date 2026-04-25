@@ -86,6 +86,7 @@ export default function CarForm({ car, adminToken }: Props) {
     (car?.features || []).join("\n")
   );
   const [decoding, setDecoding] = useState(false);
+  const [generatingDesc, setGeneratingDesc] = useState(false);
   const [vinStatus, setVinStatus] = useState<{
     type: "success" | "error";
     message: string;
@@ -135,6 +136,47 @@ export default function CarForm({ car, adminToken }: Props) {
       setVinStatus({ type: "error", message: "Failed to connect to NHTSA API." });
     } finally {
       setDecoding(false);
+    }
+  };
+
+  const generateDescription = async () => {
+    if (!form.make || !form.model) {
+      showToast("Please fill in at least Make and Model first.", "error");
+      return;
+    }
+    setGeneratingDesc(true);
+    try {
+      const res = await fetch("/api/generate-description", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-admin-token": adminToken,
+        },
+        body: JSON.stringify({
+          year: form.year,
+          make: form.make,
+          model: form.model,
+          trim: form.trim,
+          bodyStyle: form.bodyStyle,
+          price: form.price,
+          mileage: form.mileage,
+          transmission: form.transmission,
+          fuelType: form.fuelType,
+          engine: form.engine,
+          exteriorColor: form.exteriorColor,
+          interiorColor: form.interiorColor,
+          dealRating: form.dealRating,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Generation failed");
+      set("description", data.description);
+      showToast("Description generated!", "success");
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Failed to generate description.";
+      showToast(msg, "error");
+    } finally {
+      setGeneratingDesc(false);
     }
   };
 
@@ -474,7 +516,24 @@ export default function CarForm({ car, adminToken }: Props) {
         </h2>
         <div className="space-y-4">
           <div>
-            <label className={labelClass}>Description</label>
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="block text-sm font-medium text-[#212121]">Description</label>
+              <button
+                type="button"
+                onClick={generateDescription}
+                disabled={generatingDesc}
+                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 text-white disabled:opacity-60 transition-all shadow-sm"
+              >
+                {generatingDesc ? (
+                  <>
+                    <Loader2 size={12} className="animate-spin" />
+                    Generating…
+                  </>
+                ) : (
+                  <>✨ Generate Description</>
+                )}
+              </button>
+            </div>
             <textarea
               className={`${inputClass} h-36 resize-y`}
               placeholder="Describe the vehicle — condition, highlights, history..."
