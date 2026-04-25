@@ -30,7 +30,7 @@ export default function AdminLoginPage() {
       const res = await fetch("/api/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email: email.trim(), password: password.trim() }),
       });
 
       if (res.ok) {
@@ -38,11 +38,13 @@ export default function AdminLoginPage() {
         localStorage.setItem("nova-admin-token", data.token);
         localStorage.setItem("nova-admin-user", JSON.stringify(data.user));
         router.push("/admin/dashboard");
-      } else {
+      } else if (res.status === 401) {
         setError("Invalid email or password. Please try again.");
+      } else {
+        setError("Server error. Please restart the dev server and try again.");
       }
     } catch {
-      setError("Connection error. Please try again.");
+      setError("Connection error. Is the dev server running?");
     } finally {
       setLoading(false);
     }
