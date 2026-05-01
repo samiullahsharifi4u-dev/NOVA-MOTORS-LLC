@@ -22,6 +22,7 @@
   "observability": {
     "enabled": true
   },
+  "workers_dev": false,
   "routes": [
     {
       "pattern": "novamotorsllc.com/*",
