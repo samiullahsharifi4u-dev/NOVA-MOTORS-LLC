@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { getInvoiceById, updateInvoice, deleteInvoice } from "@/lib/invoices";
 

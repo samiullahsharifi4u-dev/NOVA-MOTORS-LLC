@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { readExpenses, createExpense } from "@/lib/expenses";
 

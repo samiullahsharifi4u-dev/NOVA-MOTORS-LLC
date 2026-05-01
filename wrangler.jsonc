@@ -21,5 +21,15 @@
   },
   "observability": {
     "enabled": true
-  }
+  },
+  "routes": [
+    {
+      "pattern": "novamotorsllc.com/*",
+      "zone_name": "novamotorsllc.com"
+    },
+    {
+      "pattern": "www.novamotorsllc.com/*",
+      "zone_name": "novamotorsllc.com"
+    }
+  ]
 }

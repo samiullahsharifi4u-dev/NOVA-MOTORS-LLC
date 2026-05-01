@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import { NextRequest, NextResponse } from "next/server";
 import { readCars, createCar } from "@/lib/cars";
 import { Car } from "@/lib/types";
