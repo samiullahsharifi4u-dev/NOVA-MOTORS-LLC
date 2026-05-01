@@ -49,7 +49,7 @@ export async function POST(req: Request) {
         "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
+        model: "claude-sonnet-4-6",
         max_tokens: 300,
         system:
           "You are a professional car dealership copywriter. Write compelling, accurate, and SEO-friendly vehicle descriptions for car listings. Keep descriptions between 100-150 words. Highlight key features, condition, and value. Use professional automotive language. Do not make up features not provided.",
