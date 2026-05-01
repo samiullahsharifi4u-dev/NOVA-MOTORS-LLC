@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { writeFile, mkdir } from "fs/promises";
 import path from "path";
 
+const VALID_FOLDERS = ["slides", "logo", "favicon"];
+
 export async function POST(request: NextRequest) {
   const token = request.headers.get("x-admin-token");
   if (token !== "nova-admin-auth-token") {
@@ -11,6 +13,8 @@ export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
     const file = formData.get("file") as File;
+    const folderParam = (formData.get("folder") as string) || "";
+    const folder = VALID_FOLDERS.includes(folderParam) ? folderParam : "";
 
     if (!file) {
       return NextResponse.json({ error: "No file provided" }, { status: 400 });
@@ -34,7 +38,9 @@ export async function POST(request: NextRequest) {
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    const uploadsDir = path.join(process.cwd(), "public", "uploads");
+    const uploadsDir = folder
+      ? path.join(process.cwd(), "public", "uploads", folder)
+      : path.join(process.cwd(), "public", "uploads");
     await mkdir(uploadsDir, { recursive: true });
 
     const ext = file.name.split(".").pop() || "jpg";
@@ -43,7 +49,8 @@ export async function POST(request: NextRequest) {
 
     await writeFile(filepath, buffer);
 
-    return NextResponse.json({ url: `/uploads/${filename}` });
+    const url = folder ? `/uploads/${folder}/${filename}` : `/uploads/${filename}`;
+    return NextResponse.json({ url });
   } catch (error) {
     console.error("Upload error:", error);
     return NextResponse.json({ error: "Upload failed" }, { status: 500 });

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { HeroSlide } from "@/lib/types";
 
-export default function HeroSlider({ slides }: { slides: HeroSlide[] }) {
+export default function HeroSlider({ slides, sliderSpeed = 5 }: { slides: HeroSlide[]; sliderSpeed?: number }) {
   const active = slides.filter((s) => s.active);
   const [current, setCurrent] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
@@ -24,9 +24,9 @@ export default function HeroSlider({ slides }: { slides: HeroSlide[] }) {
 
   useEffect(() => {
     if (active.length <= 1) return;
-    const id = setInterval(next, 5500);
+    const id = setInterval(next, sliderSpeed * 1000);
     return () => clearInterval(id);
-  }, [next, active.length]);
+  }, [next, active.length, sliderSpeed]);
 
   if (active.length === 0) {
     return (
@@ -46,17 +46,19 @@ export default function HeroSlider({ slides }: { slides: HeroSlide[] }) {
 
   return (
     <div className="relative h-[520px] md:h-[600px] overflow-hidden bg-slate-900 select-none">
-      {/* Image */}
-      <div className={`absolute inset-0 transition-opacity duration-500 ${transitioning ? "opacity-0" : "opacity-100"}`}>
-        {slide.imageUrl && (
-          <img
-            src={slide.imageUrl}
-            alt={slide.headline}
-            className="w-full h-full object-cover"
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent" />
-      </div>
+      {/* Background images — crossfade via absolute stacking */}
+      {active.map((s, i) => (
+        <div
+          key={s.id}
+          className="absolute inset-0 transition-opacity duration-500"
+          style={{ opacity: i === current && !transitioning ? 1 : i === current && transitioning ? 0 : 0 }}
+        >
+          {s.imageUrl && (
+            <img src={s.imageUrl} alt={s.headline} className="w-full h-full object-cover" />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent" />
+        </div>
+      ))}
 
       {/* Content */}
       <div className={`relative z-10 h-full flex items-center transition-all duration-500 ${transitioning ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"}`}>

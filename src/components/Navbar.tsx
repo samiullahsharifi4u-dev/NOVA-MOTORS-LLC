@@ -8,6 +8,9 @@ import { Heart, Phone, Menu, X, Car } from "lucide-react";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [savedCount, setSavedCount] = useState(0);
+  const [logoUrl, setLogoUrl] = useState("");
+  const [companyName, setCompanyName] = useState("Nova Motors LLC");
+  const [phone, setPhone] = useState("(703) 795-8105");
   const pathname = usePathname();
 
   useEffect(() => {
@@ -22,6 +25,16 @@ export default function Navbar() {
     updateCount();
     window.addEventListener("storage", updateCount);
     window.addEventListener("saved-cars-updated", updateCount);
+
+    fetch("/api/settings")
+      .then((r) => r.json())
+      .then((s) => {
+        if (s.logoUrl) setLogoUrl(s.logoUrl);
+        if (s.dealershipName) setCompanyName(s.dealershipName);
+        if (s.contact?.phone) setPhone(s.contact.phone);
+      })
+      .catch(() => {});
+
     return () => {
       window.removeEventListener("storage", updateCount);
       window.removeEventListener("saved-cars-updated", updateCount);
@@ -38,17 +51,25 @@ export default function Navbar() {
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
+  const telHref = `tel:+1${phone.replace(/\D/g, "")}`;
+
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-[#e0e0e0] h-16 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between gap-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <div className="w-8 h-8 bg-[#0073bb] rounded-lg flex items-center justify-center">
-            <Car size={18} className="text-white" />
-          </div>
-          <span className="font-bold text-[#212121] text-lg leading-tight hidden sm:block">
-            Nova Motors <span className="text-[#0073bb]">LLC</span>
-          </span>
+          {logoUrl ? (
+            <img src={logoUrl} alt={companyName} className="h-9 w-auto max-w-[160px] object-contain" />
+          ) : (
+            <>
+              <div className="w-8 h-8 bg-[#0073bb] rounded-lg flex items-center justify-center">
+                <Car size={18} className="text-white" />
+              </div>
+              <span className="font-bold text-[#212121] text-lg leading-tight hidden sm:block">
+                {companyName}
+              </span>
+            </>
+          )}
         </Link>
 
         {/* Desktop nav links */}
@@ -71,11 +92,11 @@ export default function Navbar() {
         {/* Right side */}
         <div className="flex items-center gap-3">
           <a
-            href="tel:+17037958105"
+            href={telHref}
             className="hidden sm:flex items-center gap-1.5 text-sm text-[#757575] hover:text-[#0073bb] transition-colors"
           >
             <Phone size={14} />
-            <span className="font-medium">(703) 795-8105</span>
+            <span className="font-medium">{phone}</span>
           </a>
 
           <Link
@@ -120,11 +141,11 @@ export default function Navbar() {
             </Link>
           ))}
           <a
-            href="tel:+17037958105"
+            href={telHref}
             className="flex items-center gap-2 px-4 py-2.5 text-sm text-[#757575]"
           >
             <Phone size={14} />
-            (703) 795-8105
+            {phone}
           </a>
         </div>
       )}

@@ -35,7 +35,7 @@ export default function HomePage() {
       <Navbar />
       <main className="flex-1">
         {/* Hero slider */}
-        <HeroSlider slides={settings?.slides ?? []} />
+        <HeroSlider slides={settings?.slides ?? []} sliderSpeed={settings?.sliderSpeed ?? 5} />
 
         {/* Stats bar */}
         <section className="bg-[#0073bb] text-white">
@@ -82,7 +82,7 @@ export default function HomePage() {
         <section className="bg-white border-y border-[#e0e0e0] py-16">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <p className="text-[#0073bb] text-sm font-semibold uppercase tracking-wider mb-2">Why Nova Motors</p>
+              <p className="text-[#0073bb] text-sm font-semibold uppercase tracking-wider mb-2">Why {settings?.dealershipName ?? "Nova Motors LLC"}</p>
               <h2 className="text-3xl font-bold text-[#212121]">The Nova Difference</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

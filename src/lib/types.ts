@@ -235,6 +235,7 @@ export interface SiteSettings {
   tagline: string;
   heroHeadline: string;
   heroSubheadline: string;
+  sliderSpeed: number;
   contact: {
     phone: string;
     email: string;
