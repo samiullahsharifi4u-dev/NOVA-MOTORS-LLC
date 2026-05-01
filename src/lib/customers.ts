@@ -1,16 +1,25 @@
 import fs from "fs";
 import path from "path";
 import { Customer } from "./types";
+import bundledCustomers from "../../data/customers.json";
 
 const DATA_PATH = path.join(process.cwd(), "data", "customers.json");
 
 export function readCustomers(): Customer[] {
-  const raw = fs.readFileSync(DATA_PATH, "utf-8");
-  return JSON.parse(raw);
+  try {
+    const raw = fs.readFileSync(DATA_PATH, "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return bundledCustomers as unknown as Customer[];
+  }
 }
 
 export function writeCustomers(customers: Customer[]): void {
-  fs.writeFileSync(DATA_PATH, JSON.stringify(customers, null, 2));
+  try {
+    fs.writeFileSync(DATA_PATH, JSON.stringify(customers, null, 2));
+  } catch {
+    // write unavailable in read-only environments (e.g. Cloudflare Workers)
+  }
 }
 
 export function getCustomerById(id: string): Customer | undefined {

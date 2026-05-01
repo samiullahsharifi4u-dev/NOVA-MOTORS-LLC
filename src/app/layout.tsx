@@ -2,16 +2,22 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ToastProvider } from "@/components/Toast";
 import { readSettings } from "@/lib/settings";
+import bundledSettings from "../../data/settings.json";
 
 export function generateMetadata(): Metadata {
   let settings = null;
   try {
     settings = readSettings();
-  } catch {}
+  } catch {
+    // fs unavailable in Cloudflare Workers — fall back to build-time bundled data
+    settings = bundledSettings as ReturnType<typeof readSettings>;
+  }
 
   const name = settings?.dealershipName ?? "Nova Motors LLC";
   const metaTitle = settings?.seo?.metaTitle || `${name} — Quality Pre-Owned Vehicles`;
-  const metaDescription = settings?.seo?.metaDescription || `${name} offers a premium selection of quality pre-owned vehicles. Browse our inventory, find your perfect car, and drive away happy.`;
+  const metaDescription =
+    settings?.seo?.metaDescription ||
+    `${name} offers a premium selection of quality pre-owned vehicles. Browse our inventory, find your perfect car, and drive away happy.`;
   const faviconUrl = settings?.faviconUrl || "/favicon.ico";
 
   return {
@@ -20,7 +26,6 @@ export function generateMetadata(): Metadata {
       template: `%s | ${name}`,
     },
     description: metaDescription,
-    keywords: ["car dealership", "used cars", "pre-owned vehicles", name],
     icons: {
       icon: faviconUrl,
     },

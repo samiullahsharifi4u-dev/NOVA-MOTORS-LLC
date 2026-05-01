@@ -25,12 +25,12 @@
   "workers_dev": true,
   "routes": [
     {
-      "pattern": "novamotorsllc.com",
-      "custom_domain": true
+      "pattern": "novamotorsllc.com/*",
+      "zone_name": "novamotorsllc.com"
     },
     {
-      "pattern": "www.novamotorsllc.com",
-      "custom_domain": true
+      "pattern": "www.novamotorsllc.com/*",
+      "zone_name": "novamotorsllc.com"
     }
   ]
 }

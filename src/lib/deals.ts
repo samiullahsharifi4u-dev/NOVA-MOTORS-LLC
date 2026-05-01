@@ -1,16 +1,25 @@
 import fs from "fs";
 import path from "path";
 import { Deal } from "./types";
+import bundledDeals from "../../data/deals.json";
 
 const DATA_PATH = path.join(process.cwd(), "data", "deals.json");
 
 export function readDeals(): Deal[] {
-  const raw = fs.readFileSync(DATA_PATH, "utf-8");
-  return JSON.parse(raw);
+  try {
+    const raw = fs.readFileSync(DATA_PATH, "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return bundledDeals as unknown as Deal[];
+  }
 }
 
 export function writeDeals(deals: Deal[]): void {
-  fs.writeFileSync(DATA_PATH, JSON.stringify(deals, null, 2));
+  try {
+    fs.writeFileSync(DATA_PATH, JSON.stringify(deals, null, 2));
+  } catch {
+    // write unavailable in read-only environments (e.g. Cloudflare Workers)
+  }
 }
 
 export function getDealById(id: string): Deal | undefined {

@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { Car } from "./types";
+import bundledCars from "../../data/cars.json";
 
 const carsFilePath = path.join(process.cwd(), "data", "cars.json");
 
@@ -9,12 +10,16 @@ export function readCars(): Car[] {
     const data = fs.readFileSync(carsFilePath, "utf-8");
     return JSON.parse(data);
   } catch {
-    return [];
+    return bundledCars as unknown as Car[];
   }
 }
 
 export function writeCars(cars: Car[]): void {
-  fs.writeFileSync(carsFilePath, JSON.stringify(cars, null, 2), "utf-8");
+  try {
+    fs.writeFileSync(carsFilePath, JSON.stringify(cars, null, 2), "utf-8");
+  } catch {
+    // write unavailable in read-only environments (e.g. Cloudflare Workers)
+  }
 }
 
 export function getCarById(id: string): Car | undefined {

@@ -1,16 +1,25 @@
 import fs from "fs";
 import path from "path";
 import { Invoice } from "./types";
+import bundledInvoices from "../../data/invoices.json";
 
 const DATA_PATH = path.join(process.cwd(), "data", "invoices.json");
 
 export function readInvoices(): Invoice[] {
-  const raw = fs.readFileSync(DATA_PATH, "utf-8");
-  return JSON.parse(raw);
+  try {
+    const raw = fs.readFileSync(DATA_PATH, "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return bundledInvoices as unknown as Invoice[];
+  }
 }
 
 export function writeInvoices(invoices: Invoice[]): void {
-  fs.writeFileSync(DATA_PATH, JSON.stringify(invoices, null, 2));
+  try {
+    fs.writeFileSync(DATA_PATH, JSON.stringify(invoices, null, 2));
+  } catch {
+    // write unavailable in read-only environments (e.g. Cloudflare Workers)
+  }
 }
 
 export function getInvoiceById(id: string): Invoice | undefined {

@@ -1,16 +1,25 @@
 import fs from "fs";
 import path from "path";
 import { Appointment } from "./types";
+import bundledAppointments from "../../data/appointments.json";
 
 const DATA_PATH = path.join(process.cwd(), "data", "appointments.json");
 
 export function readAppointments(): Appointment[] {
-  const raw = fs.readFileSync(DATA_PATH, "utf-8");
-  return JSON.parse(raw);
+  try {
+    const raw = fs.readFileSync(DATA_PATH, "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return bundledAppointments as unknown as Appointment[];
+  }
 }
 
 export function writeAppointments(appointments: Appointment[]): void {
-  fs.writeFileSync(DATA_PATH, JSON.stringify(appointments, null, 2));
+  try {
+    fs.writeFileSync(DATA_PATH, JSON.stringify(appointments, null, 2));
+  } catch {
+    // write unavailable in read-only environments (e.g. Cloudflare Workers)
+  }
 }
 
 export function getAppointmentById(id: string): Appointment | undefined {
